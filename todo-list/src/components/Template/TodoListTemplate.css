@@ -1,0 +1,37 @@
+ul, li, div, p, h1, h2, h3, h4 {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  color: #6a7273;
+  /* background-color: #fbfbfb; */
+}
+
+/* todoList */
+.todoList-container {
+  width: 400px;
+  margin: 5% auto 0;
+  border-radius: 5px;
+  border: 1px solid #d1d1d1;
+  /* color: #f8f9fa; */
+}
+
+/* title */
+.title-wrapper {
+  background-color: #fcfcfc;
+  background-image: linear-gradient(to bottom, #fcfcfc 0%, #e5e5e5 100%);
+  border-radius: 5px 5px 0 0;
+  color: #5D6B79;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 20px 0;
+  border-bottom: 1px solid #d1d1d1;
+}
+
+/* pallete */
+.pallete-wrapper {
+  padding: 1rem;
+  background-color: #f1f3f5;
+}
