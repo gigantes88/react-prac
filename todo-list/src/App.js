@@ -7,17 +7,11 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // id: 0,
-      // input: '',
-      // todos: [
-      // ],
-      id: 3,
+      id: 0,
       input: '',
-      todos: [
-        {id: 0, text: '빨래하기', checked: false},
-        {id: 1, text: '공부하기', checked: false},
-        {id: 2, text: '설거지하기', checked: false},
-      ],
+      todos: [],
+      editText: '',
+      isEditable: false,
     }
   }
 
@@ -26,9 +20,15 @@ class App extends Component {
       input: e.target.value,
     });
   }
+  
+  handleChange2 = (e) => {
+    this.setState({
+      editText: e.target.value,
+    })
+  }
 
   handleAddItem = () => {
-    const { id, input, todos, } = this.state;
+    const { input, todos, } = this.state;
 
     if (input === '') {
       return
@@ -36,7 +36,9 @@ class App extends Component {
       this.setState({
         input: '',
         todos: todos.concat({
-          id: this.state.id++, text: input, checked: false
+          id: this.state.id++,
+          text: input,
+          checked: false,
         })
       });
     }
@@ -64,6 +66,11 @@ class App extends Component {
     });
   }
 
+  handleEdit = (id) => {
+    const {isEditable} = this.state;
+    this.setState({ isEditable: !isEditable })
+  }
+
   handleRemove = (id) => {
     const {todos} = this.state;
     const todoList = todos.filter(item => item.id !== id)
@@ -73,13 +80,15 @@ class App extends Component {
   }
   
   render() {
-    const { input, todos } = this.state;
+    const { input, todos, isEditable } = this.state;
     const { 
       handleChange,
       handleAddItem,
       handleKeyPress,
       handleToggle,
-      handleRemove
+      handleEdit,
+      handleRemove,
+      handleChange2
     } = this;
 
     return (
@@ -90,6 +99,7 @@ class App extends Component {
             onChange={handleChange}
             addItem={handleAddItem}
             onKeyPress={handleKeyPress}
+            onEdit={handleEdit}
           />
         }
       >
@@ -97,6 +107,8 @@ class App extends Component {
           todos={todos}
           onToggle={handleToggle}
           onRemove={handleRemove}
+          isEditable={isEditable}
+          onChange={handleChange2}
         />
       </TodoListTemplate>
     );

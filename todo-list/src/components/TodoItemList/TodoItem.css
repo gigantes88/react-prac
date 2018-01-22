@@ -1,6 +1,4 @@
 /* todos */
-.todos-wrapper {
-}
 .todos-wrapper .todos {
   border-bottom: 1px solid #f0f2f3;
 }
@@ -14,18 +12,27 @@
 .todos-wrapper .todos > div:hover {
   background-color: #e6fcf5;
 }
-.todos-wrapper .todos > div:hover .remove{
+.todos-wrapper .todos > div:hover .remove, 
+.todos-wrapper .todos > div:hover .edit {
   opacity: 1;
+}
+.todos span {
+  font-size: 14px;
 }
 .checked, .checked:hover {
   text-decoration: line-through;
   color: #20c997;
+  transition: 0.2s;
 }
 .remove {
   display: inline-block;
   margin-left: 10px;
   color: #e64980;
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-size: 1rem;
   opacity: 0;
+  transition: 0.4s;
+}
+.editable {
+  font-size: 14px;
+  color: #6a7273;
 }
